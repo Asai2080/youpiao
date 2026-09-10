@@ -1,0 +1,466 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/fusion-plan.schema.json",
+  "title": "Multi-image semantic fusion plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "same_destination",
+    "same_destination_confidence",
+    "identity_conflict",
+    "hero",
+    "secondary",
+    "foreground",
+    "background",
+    "connectors",
+    "anchors",
+    "unused_images",
+    "verified_name_pool",
+    "primary_title_selection",
+    "title_scope",
+    "status"
+  ],
+  "properties": {
+    "mode": {
+      "const": "multi_fusion"
+    },
+    "same_destination": {
+      "enum": [
+        true,
+        false,
+        "unknown"
+      ]
+    },
+    "same_destination_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "identity_conflict": {
+      "type": "boolean"
+    },
+    "hero": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "image_id",
+            "element",
+            "role",
+            "reason"
+          ],
+          "properties": {
+            "image_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "element": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role": {
+              "enum": [
+                "hero",
+                "secondary",
+                "foreground",
+                "background",
+                "connector",
+                "unused"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "secondary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "element",
+          "role",
+          "reason"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "hero",
+              "secondary",
+              "foreground",
+              "background",
+              "connector",
+              "unused"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "foreground": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "element",
+          "role",
+          "reason"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "hero",
+              "secondary",
+              "foreground",
+              "background",
+              "connector",
+              "unused"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "background": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "element",
+          "role",
+          "reason"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "hero",
+              "secondary",
+              "foreground",
+              "background",
+              "connector",
+              "unused"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "connectors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "element",
+          "role",
+          "reason"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "hero",
+              "secondary",
+              "foreground",
+              "background",
+              "connector",
+              "unused"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "anchors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "perspective",
+        "lighting",
+        "color",
+        "print_medium"
+      ],
+      "properties": {
+        "perspective": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lighting": {
+          "type": "string",
+          "minLength": 1
+        },
+        "color": {
+          "type": "string",
+          "minLength": 1
+        },
+        "print_medium": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "unused_images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "element",
+          "role",
+          "reason"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "element": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "hero",
+              "secondary",
+              "foreground",
+              "background",
+              "connector",
+              "unused"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "verified_name_pool": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "source_image_id",
+          "source_name",
+          "display_name",
+          "kind",
+          "confidence",
+          "evidence"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_image_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "building",
+              "attraction",
+              "city",
+              "place"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.9,
+            "maximum": 1
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "primary_title_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategy",
+        "candidate_pool_size",
+        "selected_candidate_id",
+        "selected_name"
+      ],
+      "properties": {
+        "strategy": {
+          "const": "RANDOM_FROM_VERIFIED_NAME_POOL"
+        },
+        "candidate_pool_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_candidate_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "selected_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "title_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "ready",
+        "needs_verified_name",
+        "not_applicable"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ready"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "verified_name_pool": {
+            "minItems": 1
+          },
+          "primary_title_selection": {
+            "properties": {
+              "candidate_pool_size": {
+                "minimum": 1
+              },
+              "selected_candidate_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "selected_name": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "needs_verified_name"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "verified_name_pool": {
+            "maxItems": 0
+          },
+          "primary_title_selection": {
+            "properties": {
+              "candidate_pool_size": {
+                "const": 0
+              },
+              "selected_candidate_id": {
+                "const": null
+              },
+              "selected_name": {
+                "const": null
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "image_id": "image_01",
+  "location": {
+    "primary_location": "Example City",
+    "country": null,
+    "city_or_region": "Example City",
+    "landmark_name": null,
+    "location_name": null,
+    "local_language_name": null,
+    "confidence": 0.72,
+    "evidence": [
+      "User-provided context"
+    ]
+  },
+  "visible_text": [],
+  "subjects": {
+    "hero_candidates": [
+      "central historic station"
+    ],
+    "secondary_landmarks": [],
+    "natural_icons": [],
+    "fauna": [],
+    "transport": [
+      "tram"
+    ],
+    "bridges": [],
+    "water": [],
+    "streets": [
+      "foreground street"
+    ],
+    "vegetation": [
+      "street trees"
+    ],
+    "local_objects": [],
+    "street_furniture": [
+      "lamp posts"
+    ],
+    "heritage_details": [
+      "stone facade"
+    ]
+  },
+  "architecture": {
+    "style": "historic civic",
+    "materials": [
+      "stone",
+      "metal"
+    ],
+    "verticality": 0.54,
+    "monumentality": 0.78,
+    "central_axis_available": true,
+    "frontal_or_symmetrical": true,
+    "has_horizontal_base": true,
+    "has_repeating_structure": true,
+    "public_building": true
+  },
+  "spatial": {
+    "linear_landmark_score": 0.18,
+    "perspective_depth_score": 0.62,
+    "skyline_score": 0.35,
+    "foreground_framing_score": 0.46,
+    "open_compositional_corridors": true,
+    "multi_depth_cityscape": true
+  },
+  "scene": {
+    "cityscape_richness": 0.58,
+    "heritage": 0.82,
+    "civic": 0.77,
+    "botanical_candidate": 0.36,
+    "local_life": 0.42,
+    "local_transit": 0.55,
+    "infrastructure": 0.48,
+    "destination_diversity": 0.24,
+    "pure_natural_scene": false
+  },
+  "reliable_text_candidates": [
+    {
+      "text": "EXAMPLE CITY",
+      "kind": "location",
+      "verification": "user_supplied",
+      "confidence": 1,
+      "evidence": [
+        "User supplied"
+      ]
+    }
+  ],
+  "verified_name_candidates": [
+    {
+      "candidate_id": "image_01-name-01",
+      "source_name": "EXAMPLE CITY",
+      "display_name": "EXAMPLE CITY",
+      "kind": "city",
+      "source_type": "user_provided",
+      "confidence": 1,
+      "evidence": [
+        "User supplied"
+      ],
+      "primary_title_eligible": true,
+      "country_only": false
+    }
+  ],
+  "analysis_notes": [
+    "Example contains no verified year or denomination."
+  ]
+}

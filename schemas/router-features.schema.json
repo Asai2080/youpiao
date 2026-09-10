@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/router-features.schema.json",
+  "title": "Normalized router features",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "scores",
+    "flags",
+    "same_destination_confidence",
+    "ratio_compatibility"
+  ],
+  "properties": {
+    "mode": {
+      "enum": [
+        "single",
+        "multi_fusion"
+      ]
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "heritage_score",
+        "civic_score",
+        "monumentality_score",
+        "vertical_hero_score",
+        "linear_landmark_score",
+        "perspective_depth_score",
+        "multi_landmark_score",
+        "cityscape_richness_score",
+        "skyline_score",
+        "horizontal_architectural_base_score",
+        "botanical_candidate_score",
+        "local_life_score",
+        "local_transit_score",
+        "heritage_detail_score",
+        "natural_icon_score",
+        "fauna_score",
+        "infrastructure_score",
+        "foreground_framing_score",
+        "destination_diversity_score"
+      ],
+      "properties": {
+        "heritage_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "civic_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "monumentality_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "vertical_hero_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "linear_landmark_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "perspective_depth_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "multi_landmark_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "cityscape_richness_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "skyline_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "horizontal_architectural_base_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "botanical_candidate_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "local_life_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "local_transit_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "heritage_detail_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "natural_icon_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "fauna_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "infrastructure_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "foreground_framing_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "destination_diversity_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repeating_structure",
+        "large_environment_visible",
+        "central_single_monument",
+        "isolated_civic_building",
+        "central_axis_available",
+        "frontal_or_symmetrical",
+        "historic_material_detail",
+        "rich_city_life_dominant",
+        "multi_city_montage_dominant",
+        "public_building",
+        "real_street_context",
+        "no_horizontal_base",
+        "pure_natural_scene",
+        "traditional_cityscape",
+        "time_layered_city",
+        "clear_hero_landmark",
+        "transport_present",
+        "multi_depth_cityscape",
+        "continuous_urban_fabric",
+        "open_compositional_corridors",
+        "wide_city_context",
+        "classic_travel_scene",
+        "landmark_title_interlock_ok",
+        "urban_environment",
+        "hero_monument",
+        "historic_city_background",
+        "local_botanical_detail",
+        "classical_civic_symbol",
+        "modern_transit_dominant",
+        "natural_destination_dominant",
+        "cultural_landmark",
+        "pure_civic_city_only",
+        "multiple_civic_landmarks",
+        "secondary_icon_available",
+        "city_identity_hero",
+        "hero_not_monumental",
+        "horizontal_or_diagonal_transit",
+        "no_layering_elements",
+        "no_hero",
+        "general_city_multi_image",
+        "clear_hero",
+        "city_background",
+        "local_icon",
+        "water_or_street",
+        "coast_mountain_or_landscape",
+        "only_one_building_type",
+        "heritage_object_dominant",
+        "no_urban_context",
+        "natural_montage_dominant",
+        "no_heritage_content"
+      ],
+      "properties": {
+        "repeating_structure": {
+          "type": "boolean"
+        },
+        "large_environment_visible": {
+          "type": "boolean"
+        },
+        "central_single_monument": {
+          "type": "boolean"
+        },
+        "isolated_civic_building": {
+          "type": "boolean"
+        },
+        "central_axis_available": {
+          "type": "boolean"
+        },
+        "frontal_or_symmetrical": {
+          "type": "boolean"
+        },
+        "historic_material_detail": {
+          "type": "boolean"
+        },
+        "rich_city_life_dominant": {
+          "type": "boolean"
+        },
+        "multi_city_montage_dominant": {
+          "type": "boolean"
+        },
+        "public_building": {
+          "type": "boolean"
+        },
+        "real_street_context": {
+          "type": "boolean"
+        },
+        "no_horizontal_base": {
+          "type": "boolean"
+        },
+        "pure_natural_scene": {
+          "type": "boolean"
+        },
+        "traditional_cityscape": {
+          "type": "boolean"
+        },
+        "time_layered_city": {
+          "type": "boolean"
+        },
+        "clear_hero_landmark": {
+          "type": "boolean"
+        },
+        "transport_present": {
+          "type": "boolean"
+        },
+        "multi_depth_cityscape": {
+          "type": "boolean"
+        },
+        "continuous_urban_fabric": {
+          "type": "boolean"
+        },
+        "open_compositional_corridors": {
+          "type": "boolean"
+        },
+        "wide_city_context": {
+          "type": "boolean"
+        },
+        "classic_travel_scene": {
+          "type": "boolean"
+        },
+        "landmark_title_interlock_ok": {
+          "type": "boolean"
+        },
+        "urban_environment": {
+          "type": "boolean"
+        },
+        "hero_monument": {
+          "type": "boolean"
+        },
+        "historic_city_background": {
+          "type": "boolean"
+        },
+        "local_botanical_detail": {
+          "type": "boolean"
+        },
+        "classical_civic_symbol": {
+          "type": "boolean"
+        },
+        "modern_transit_dominant": {
+          "type": "boolean"
+        },
+        "natural_destination_dominant": {
+          "type": "boolean"
+        },
+        "cultural_landmark": {
+          "type": "boolean"
+        },
+        "pure_civic_city_only": {
+          "type": "boolean"
+        },
+        "multiple_civic_landmarks": {
+          "type": "boolean"
+        },
+        "secondary_icon_available": {
+          "type": "boolean"
+        },
+        "city_identity_hero": {
+          "type": "boolean"
+        },
+        "hero_not_monumental": {
+          "type": "boolean"
+        },
+        "horizontal_or_diagonal_transit": {
+          "type": "boolean"
+        },
+        "no_layering_elements": {
+          "type": "boolean"
+        },
+        "no_hero": {
+          "type": "boolean"
+        },
+        "general_city_multi_image": {
+          "type": "boolean"
+        },
+        "clear_hero": {
+          "type": "boolean"
+        },
+        "city_background": {
+          "type": "boolean"
+        },
+        "local_icon": {
+          "type": "boolean"
+        },
+        "water_or_street": {
+          "type": "boolean"
+        },
+        "coast_mountain_or_landscape": {
+          "type": "boolean"
+        },
+        "only_one_building_type": {
+          "type": "boolean"
+        },
+        "heritage_object_dominant": {
+          "type": "boolean"
+        },
+        "no_urban_context": {
+          "type": "boolean"
+        },
+        "natural_montage_dominant": {
+          "type": "boolean"
+        },
+        "no_heritage_content": {
+          "type": "boolean"
+        }
+      }
+    },
+    "same_destination_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "ratio_compatibility": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": -5,
+        "maximum": 5
+      }
+    }
+  }
+}

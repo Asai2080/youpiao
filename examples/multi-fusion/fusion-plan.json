@@ -1,0 +1,58 @@
+{
+  "mode": "multi_fusion",
+  "same_destination": true,
+  "same_destination_confidence": 0.91,
+  "identity_conflict": false,
+  "hero": {
+    "image_id": "image_01",
+    "element": "vertical civic tower",
+    "role": "hero",
+    "reason": "highest recognition and complete silhouette"
+  },
+  "secondary": [
+    {
+      "image_id": "image_02",
+      "element": "historic station",
+      "role": "secondary",
+      "reason": "horizontal silhouette complements the hero"
+    }
+  ],
+  "foreground": [
+    {
+      "image_id": "image_03",
+      "element": "local tram",
+      "role": "foreground",
+      "reason": "directional transit counterbalances vertical hero"
+    }
+  ],
+  "background": [],
+  "connectors": [],
+  "anchors": {
+    "perspective": "image_01 eye level",
+    "lighting": "soft light from upper left",
+    "color": "muted warm daylight",
+    "print_medium": "aged lithography"
+  },
+  "unused_images": [],
+  "verified_name_pool": [
+    {
+      "candidate_id": "image_01-name-01",
+      "source_image_id": "image_01",
+      "source_name": "EXAMPLE CITY",
+      "display_name": "EXAMPLE CITY",
+      "kind": "city",
+      "confidence": 1,
+      "evidence": [
+        "User supplied"
+      ]
+    }
+  ],
+  "primary_title_selection": {
+    "strategy": "RANDOM_FROM_VERIFIED_NAME_POOL",
+    "candidate_pool_size": 1,
+    "selected_candidate_id": "image_01-name-01",
+    "selected_name": "EXAMPLE CITY"
+  },
+  "title_scope": "random verified source name",
+  "status": "ready"
+}

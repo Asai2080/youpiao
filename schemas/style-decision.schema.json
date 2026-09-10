@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/style-decision.schema.json",
+  "title": "Deterministic single-style routing decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "orientation",
+    "selected_style",
+    "runner_up",
+    "all_scores",
+    "routing_evidence",
+    "override",
+    "reason"
+  ],
+  "properties": {
+    "mode": {
+      "enum": [
+        "single",
+        "multi_fusion"
+      ]
+    },
+    "orientation": {
+      "enum": [
+        "portrait",
+        "landscape"
+      ]
+    },
+    "selected_style": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "style_id",
+            "source_label",
+            "source_prompt_policy",
+            "score",
+            "confidence",
+            "active_version",
+            "prompt_path"
+          ],
+          "properties": {
+            "style_id": {
+              "type": "string",
+              "pattern": "^(STYLE_0[1-7]|MULTI_STYLE_0[1-6])$"
+            },
+            "source_label": {
+              "type": "string"
+            },
+            "source_prompt_policy": {
+              "const": "READ_ONLY"
+            },
+            "score": {
+              "type": "number"
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "compatibility_review"
+              ]
+            },
+            "active_version": {
+              "type": "string",
+              "pattern": "^v[1-9][0-9]*$"
+            },
+            "prompt_path": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "runner_up": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "style_id",
+            "score",
+            "eligible",
+            "hard_gate_status"
+          ],
+          "properties": {
+            "style_id": {
+              "type": "string",
+              "pattern": "^(STYLE_0[1-7]|MULTI_STYLE_0[1-6])$"
+            },
+            "score": {
+              "type": "number"
+            },
+            "eligible": {
+              "type": "boolean"
+            },
+            "hard_gate_status": {
+              "enum": [
+                "passed",
+                "failed",
+                "not_applicable"
+              ]
+            },
+            "failed_gates": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "all_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "style_id",
+          "score",
+          "eligible",
+          "hard_gate_status"
+        ],
+        "properties": {
+          "style_id": {
+            "type": "string",
+            "pattern": "^(STYLE_0[1-7]|MULTI_STYLE_0[1-6])$"
+          },
+          "score": {
+            "type": "number"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "hard_gate_status": {
+            "enum": [
+              "passed",
+              "failed",
+              "not_applicable"
+            ]
+          },
+          "failed_gates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "routing_evidence": {
+      "type": "object"
+    },
+    "override": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "requested_style",
+        "compatibility_check"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "none",
+            "user_style",
+            "user_hero"
+          ]
+        },
+        "requested_style": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "compatibility_check": {
+          "enum": [
+            "passed",
+            "failed",
+            "not_applicable"
+          ]
+        }
+      }
+    },
+    "reason": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

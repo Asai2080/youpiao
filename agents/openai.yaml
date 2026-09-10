@@ -1,0 +1,4 @@
+interface:
+  display_name: "youpiao"
+  short_description: "按核验后的建筑与地名、只读提示词生成横竖版透明复古邮票"
+  default_prompt: "Use $youpiao to turn my reference images into a portrait or landscape vintage postage stamp using only verified names and one selected immutable source prompt."

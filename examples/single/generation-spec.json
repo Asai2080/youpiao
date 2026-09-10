@@ -1,0 +1,88 @@
+{
+  "session_path": "examples/single/session.json",
+  "analysis_paths": [
+    "examples/single/image-analysis.json"
+  ],
+  "color_analysis_paths": [
+    "examples/single/color-analysis.json"
+  ],
+  "fusion_plan_path": null,
+  "style_decision_path": "work/style-decision.json",
+  "source_prompt": {
+    "prompt_id": "single.style_02",
+    "path": "prompts/single/style_02/prompt_v3.md",
+    "version": "v3",
+    "policy": "READ_ONLY",
+    "sha256": "221acdaed0a119dd4260861f26cd806398e45f1cb92c586d59367d6e10da8078",
+    "loaded_verbatim": true,
+    "mutation_detected": false
+  },
+  "output": {
+    "orientation": "portrait",
+    "ratio": "2:3",
+    "width": 1024,
+    "height": 1536,
+    "subject_preservation": 0.95,
+    "stamp_inside": "opaque",
+    "outside_perforation_alpha": 0,
+    "file_format": "PNG",
+    "pixel_mode": "RGBA",
+    "transparency_processor": "scripts/apply_transparency_mask.py",
+    "alpha_delivery_gate": true
+  },
+  "text_plan": {
+    "ask_user_whether_to_add_text": false,
+    "source_priority": [
+      "USER_TEXT",
+      "VERIFIED_FACT_TEXT",
+      "STYLE_DECORATIVE_TEXT"
+    ],
+    "primary_title_strategy": "SINGLE_MOST_SPECIFIC_FROM_VERIFIED_POOL",
+    "verified_primary_title_candidates": [
+      {
+        "candidate_id": "image_01-name-01",
+        "source_image_id": "image_01",
+        "display_name": "EXAMPLE CITY",
+        "kind": "city",
+        "confidence": 1,
+        "evidence": [
+          "User supplied"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "text": "EXAMPLE CITY",
+        "kind": "VERIFIED_FACT_TEXT",
+        "verification": "user_supplied",
+        "typography_role": "primary_title",
+        "color_role": "HERITAGE_MATERIAL_COLOR"
+      }
+    ]
+  },
+  "style_lock": {
+    "one_style_only": true,
+    "border_embedded": true,
+    "footer_embedded": true,
+    "typography_style_locked": true
+  },
+  "policy_stack": [
+    "source_prompt_integrity",
+    "global_fact",
+    "primary_title",
+    "user_text",
+    "typography",
+    "dynamic_text_color",
+    "cultural_integrity",
+    "ratio",
+    "transparency",
+    "global_negative"
+  ],
+  "qa_requirements": [
+    "fact",
+    "style",
+    "content",
+    "output",
+    "alpha"
+  ]
+}

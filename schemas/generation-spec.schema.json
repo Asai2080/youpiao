@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/generation-spec.schema.json",
+  "title": "Generation handoff specification (does not generate an image)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_path",
+    "analysis_paths",
+    "color_analysis_paths",
+    "fusion_plan_path",
+    "style_decision_path",
+    "source_prompt",
+    "output",
+    "text_plan",
+    "style_lock",
+    "policy_stack",
+    "qa_requirements"
+  ],
+  "properties": {
+    "session_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "analysis_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "color_analysis_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "fusion_plan_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "style_decision_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_id",
+        "path",
+        "version",
+        "policy",
+        "sha256",
+        "loaded_verbatim",
+        "mutation_detected"
+      ],
+      "properties": {
+        "prompt_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^v[1-9][0-9]*$"
+        },
+        "policy": {
+          "const": "READ_ONLY"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "loaded_verbatim": {
+          "const": true
+        },
+        "mutation_detected": {
+          "const": false
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "orientation",
+        "ratio",
+        "width",
+        "height",
+        "subject_preservation",
+        "stamp_inside",
+        "outside_perforation_alpha",
+        "file_format",
+        "pixel_mode",
+        "transparency_processor",
+        "alpha_delivery_gate"
+      ],
+      "properties": {
+        "orientation": {
+          "enum": [
+            "portrait",
+            "landscape"
+          ]
+        },
+        "ratio": {
+          "enum": [
+            "2:3",
+            "3:2"
+          ]
+        },
+        "width": {
+          "enum": [
+            1024,
+            1536
+          ]
+        },
+        "height": {
+          "enum": [
+            1024,
+            1536
+          ]
+        },
+        "subject_preservation": {
+          "type": "number",
+          "minimum": 0.95,
+          "maximum": 1
+        },
+        "stamp_inside": {
+          "const": "opaque"
+        },
+        "outside_perforation_alpha": {
+          "const": 0
+        },
+        "file_format": {
+          "const": "PNG"
+        },
+        "pixel_mode": {
+          "const": "RGBA"
+        },
+        "transparency_processor": {
+          "const": "scripts/apply_transparency_mask.py"
+        },
+        "alpha_delivery_gate": {
+          "const": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "orientation": {
+                "const": "portrait"
+              }
+            },
+            "required": [
+              "orientation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ratio": {
+                "const": "2:3"
+              },
+              "width": {
+                "const": 1024
+              },
+              "height": {
+                "const": 1536
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "orientation": {
+                "const": "landscape"
+              }
+            },
+            "required": [
+              "orientation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ratio": {
+                "const": "3:2"
+              },
+              "width": {
+                "const": 1536
+              },
+              "height": {
+                "const": 1024
+              }
+            }
+          }
+        }
+      ]
+    },
+    "text_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ask_user_whether_to_add_text",
+        "source_priority",
+        "primary_title_strategy",
+        "verified_primary_title_candidates",
+        "items"
+      ],
+      "properties": {
+        "ask_user_whether_to_add_text": {
+          "const": false
+        },
+        "source_priority": {
+          "const": [
+            "USER_TEXT",
+            "VERIFIED_FACT_TEXT",
+            "STYLE_DECORATIVE_TEXT"
+          ]
+        },
+        "primary_title_strategy": {
+          "enum": [
+            "SINGLE_MOST_SPECIFIC_FROM_VERIFIED_POOL",
+            "MULTI_RANDOM_FROM_VERIFIED_POOL"
+          ]
+        },
+        "verified_primary_title_candidates": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "candidate_id",
+              "source_image_id",
+              "display_name",
+              "kind",
+              "confidence",
+              "evidence"
+            ],
+            "properties": {
+              "candidate_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_image_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "display_name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "building",
+                  "attraction",
+                  "city",
+                  "place"
+                ]
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0.9,
+                "maximum": 1
+              },
+              "evidence": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "kind",
+              "verification",
+              "typography_role",
+              "color_role"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "USER_TEXT",
+                  "VERIFIED_FACT_TEXT",
+                  "STYLE_DECORATIVE_TEXT"
+                ]
+              },
+              "verification": {
+                "enum": [
+                  "user_supplied",
+                  "verified",
+                  "visible_in_image",
+                  "decorative_nonfactual"
+                ]
+              },
+              "typography_role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "color_role": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "style_lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "one_style_only",
+        "border_embedded",
+        "footer_embedded",
+        "typography_style_locked"
+      ],
+      "properties": {
+        "one_style_only": {
+          "const": true
+        },
+        "border_embedded": {
+          "const": true
+        },
+        "footer_embedded": {
+          "const": true
+        },
+        "typography_style_locked": {
+          "const": true
+        }
+      }
+    },
+    "policy_stack": {
+      "type": "array",
+      "minItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "qa_requirements": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "session_id": "example-independent-001",
+  "image_count": 2,
+  "image_ids": [
+    "image_01",
+    "image_02"
+  ],
+  "mode": "multi_independent",
+  "orientation": "landscape",
+  "output_ratio": "3:2",
+  "output_width": 1536,
+  "output_height": 1024,
+  "pending_questions": [],
+  "user_text": {
+    "provided": false,
+    "content": null,
+    "source": "auto_verified"
+  },
+  "selected_style": null,
+  "status": "analysis"
+}

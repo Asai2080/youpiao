@@ -1,0 +1,20 @@
+{
+  "session_id": "example-single-001",
+  "image_count": 1,
+  "image_ids": [
+    "image_01"
+  ],
+  "mode": "single",
+  "orientation": "portrait",
+  "output_ratio": "2:3",
+  "output_width": 1024,
+  "output_height": 1536,
+  "pending_questions": [],
+  "user_text": {
+    "provided": false,
+    "content": null,
+    "source": "auto_verified"
+  },
+  "selected_style": "STYLE_02",
+  "status": "spec_ready"
+}

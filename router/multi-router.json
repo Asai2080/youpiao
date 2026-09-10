@@ -1,0 +1,497 @@
+{
+  "config_version": "1.1.0",
+  "feature_scale": [
+    0,
+    1
+  ],
+  "precheck": {
+    "required": "verified_name_pool",
+    "different_destinations": {
+      "result": "ALLOWED_WHEN_USER_REQUESTS_FUSION",
+      "action": "Preserve each source identity and never claim a shared city."
+    },
+    "empty_verified_name_pool": {
+      "result": "BLOCKED_UNVERIFIED_PRIMARY_TITLE",
+      "action": "Stop before generation; never infer a place from visual style."
+    }
+  },
+  "algorithm": {
+    "kind": "deterministic_additive",
+    "apply_hard_gates_before_scoring": true,
+    "one_style_only": true,
+    "direct_select_margin": 12,
+    "confidence_bands": {
+      "high": {
+        "min": 80
+      },
+      "medium": {
+        "min": 65,
+        "max": 79.999
+      },
+      "low": {
+        "min": 50,
+        "max": 64.999
+      },
+      "compatibility_review": {
+        "max": 49.999
+      }
+    },
+    "ratio_compatibility_weight_cap": 5,
+    "selected_prompt_must_be_available": true,
+    "fallback_style_id": "MULTI_STYLE_01",
+    "randomization": false
+  },
+  "title_selection": {
+    "strategy": "RANDOM_FROM_UNION_VERIFIED_NAME_POOL",
+    "randomization_scope": "PRIMARY_TITLE_ONLY",
+    "deduplicate": true,
+    "allowed_kinds": [
+      "building",
+      "attraction",
+      "city",
+      "place"
+    ],
+    "allow_country_primary_title": false,
+    "allow_outside_pool": false,
+    "empty_pool_result": "BLOCKED_UNVERIFIED_PRIMARY_TITLE"
+  },
+  "styles": {
+    "MULTI_STYLE_02": {
+      "hard_gates": [
+        {
+          "all": [
+            {
+              "feature": "scores.heritage_score",
+              "operator": ">=",
+              "value": 0.45
+            },
+            {
+              "feature": "flags.hero_monument",
+              "operator": "==",
+              "value": true
+            }
+          ],
+          "reason": "A real heritage subject and monument hero are required."
+        }
+      ],
+      "score_rules": [
+        {
+          "feature": "scores.heritage_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": 35,
+          "note": "Strong heritage"
+        },
+        {
+          "feature": "flags.hero_monument",
+          "operator": "==",
+          "value": true,
+          "weight": 25,
+          "note": "Hero monument"
+        },
+        {
+          "feature": "scores.heritage_detail_score",
+          "operator": ">=",
+          "value": 0.55,
+          "weight": 30,
+          "note": "Heritage detail"
+        },
+        {
+          "feature": "flags.historic_city_background",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Historic city background"
+        },
+        {
+          "feature": "flags.local_botanical_detail",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Local botanical detail"
+        },
+        {
+          "feature": "flags.classical_civic_symbol",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Classical civic symbol"
+        },
+        {
+          "feature": "flags.modern_transit_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "Modern transit dominates"
+        },
+        {
+          "feature": "flags.natural_destination_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "Nature dominates"
+        },
+        {
+          "feature": "flags.no_heritage_content",
+          "operator": "==",
+          "value": true,
+          "weight": -40,
+          "note": "No heritage"
+        }
+      ],
+      "invalid_rules": [
+        {
+          "feature": "flags.no_heritage_content",
+          "operator": "==",
+          "value": true,
+          "effect": "INVALID",
+          "note": "No heritage content"
+        }
+      ]
+    },
+    "MULTI_STYLE_03": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.destination_diversity_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 35,
+          "note": "Destination diversity"
+        },
+        {
+          "feature": "scores.natural_icon_score",
+          "operator": ">=",
+          "value": 0.55,
+          "weight": 30,
+          "note": "Natural icon"
+        },
+        {
+          "feature": "scores.fauna_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 15,
+          "note": "Fauna"
+        },
+        {
+          "feature": "scores.botanical_candidate_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Botanical"
+        },
+        {
+          "feature": "scores.local_transit_score",
+          "operator": ">=",
+          "value": 0.35,
+          "weight": 10,
+          "note": "Local transport"
+        },
+        {
+          "feature": "flags.coast_mountain_or_landscape",
+          "operator": "==",
+          "value": true,
+          "weight": 20,
+          "note": "Coast, mountain, or landscape"
+        },
+        {
+          "feature": "flags.cultural_landmark",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Cultural landmark"
+        },
+        {
+          "feature": "flags.pure_civic_city_only",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "Pure civic city"
+        },
+        {
+          "feature": "flags.only_one_building_type",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "Only one building type"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "MULTI_STYLE_04": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.civic_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 30,
+          "note": "Civic character"
+        },
+        {
+          "feature": "flags.multiple_civic_landmarks",
+          "operator": "==",
+          "value": true,
+          "weight": 25,
+          "note": "Multiple civic landmarks"
+        },
+        {
+          "feature": "scores.skyline_score",
+          "operator": ">=",
+          "value": 0.55,
+          "weight": 20,
+          "note": "Skyline"
+        },
+        {
+          "feature": "scores.local_transit_score",
+          "operator": ">=",
+          "value": 0.45,
+          "weight": 20,
+          "note": "Local transit"
+        },
+        {
+          "feature": "scores.infrastructure_score",
+          "operator": ">=",
+          "value": 0.45,
+          "weight": 15,
+          "note": "Infrastructure"
+        },
+        {
+          "feature": "flags.secondary_icon_available",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Secondary icon"
+        },
+        {
+          "feature": "flags.natural_destination_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "Nature dominates"
+        },
+        {
+          "feature": "flags.heritage_object_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -15,
+          "note": "Heritage object dominates"
+        },
+        {
+          "feature": "flags.no_urban_context",
+          "operator": "==",
+          "value": true,
+          "weight": -30,
+          "note": "No urban context"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "MULTI_STYLE_05": {
+      "hard_gates": [
+        {
+          "feature": "scores.vertical_hero_score",
+          "operator": ">=",
+          "value": 0.6,
+          "reason": "A real strong vertical hero is required."
+        },
+        {
+          "feature": "flags.no_hero",
+          "operator": "==",
+          "value": false,
+          "reason": "A hero must exist."
+        }
+      ],
+      "score_rules": [
+        {
+          "feature": "scores.vertical_hero_score",
+          "operator": ">=",
+          "value": 0.8,
+          "weight": 40,
+          "note": "Very strong vertical hero"
+        },
+        {
+          "feature": "scores.monumentality_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": 25,
+          "note": "Monumentality"
+        },
+        {
+          "feature": "flags.city_identity_hero",
+          "operator": "==",
+          "value": true,
+          "weight": 20,
+          "note": "City identity hero"
+        },
+        {
+          "feature": "scores.multi_landmark_score",
+          "operator": ">=",
+          "value": 0.5,
+          "weight": 15,
+          "note": "Multiple landmarks"
+        },
+        {
+          "feature": "scores.skyline_score",
+          "operator": ">=",
+          "value": 0.45,
+          "weight": 10,
+          "note": "Skyline"
+        },
+        {
+          "feature": "scores.local_transit_score",
+          "operator": ">=",
+          "value": 0.35,
+          "weight": 10,
+          "note": "Local transit"
+        },
+        {
+          "feature": "flags.no_hero",
+          "operator": "==",
+          "value": true,
+          "weight": -40,
+          "note": "No strong vertical hero"
+        },
+        {
+          "feature": "flags.natural_montage_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -30,
+          "note": "Nature montage"
+        },
+        {
+          "feature": "flags.hero_not_monumental",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "Hero is not monumental"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "MULTI_STYLE_06": {
+      "hard_gates": [
+        {
+          "feature": "flags.no_hero",
+          "operator": "==",
+          "value": false,
+          "reason": "A hero must exist."
+        }
+      ],
+      "score_rules": [
+        {
+          "feature": "scores.vertical_hero_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 30,
+          "note": "Vertical hero"
+        },
+        {
+          "feature": "scores.local_transit_score",
+          "operator": ">=",
+          "value": 0.55,
+          "weight": 25,
+          "note": "Local transit"
+        },
+        {
+          "feature": "scores.foreground_framing_score",
+          "operator": ">=",
+          "value": 0.45,
+          "weight": 20,
+          "note": "Foreground framing"
+        },
+        {
+          "feature": "flags.secondary_icon_available",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Secondary icon"
+        },
+        {
+          "feature": "scores.skyline_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Skyline"
+        },
+        {
+          "feature": "scores.infrastructure_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Infrastructure"
+        },
+        {
+          "feature": "flags.horizontal_or_diagonal_transit",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Directional transit"
+        },
+        {
+          "feature": "flags.no_layering_elements",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "No layering elements"
+        },
+        {
+          "feature": "flags.no_hero",
+          "operator": "==",
+          "value": true,
+          "weight": -30,
+          "note": "No hero"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "MULTI_STYLE_01": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "flags.general_city_multi_image",
+          "operator": "==",
+          "value": true,
+          "weight": 30,
+          "note": "General multi-image city set"
+        },
+        {
+          "feature": "flags.clear_hero",
+          "operator": "==",
+          "value": true,
+          "weight": 25,
+          "note": "Clear hero"
+        },
+        {
+          "feature": "flags.city_background",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "City background"
+        },
+        {
+          "feature": "flags.local_icon",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Local icon"
+        },
+        {
+          "feature": "flags.water_or_street",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Water or street"
+        },
+        {
+          "feature": "scores.multi_landmark_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Multiple landmarks"
+        }
+      ],
+      "invalid_rules": []
+    }
+  }
+}

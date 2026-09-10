@@ -1,0 +1,82 @@
+{
+  "image_id": "image_01",
+  "analysis_only": true,
+  "structural_dark": [
+    {
+      "hex": "#25313A",
+      "hsl": {
+        "h": 205,
+        "s": 22,
+        "l": 19
+      },
+      "source_region": "window frames and deep facade shadows",
+      "source_semantics": [
+        "architectural shadow",
+        "repeated structure"
+      ],
+      "coverage": 0.18,
+      "repeat_count": 7,
+      "confidence": 0.88
+    }
+  ],
+  "architectural_material": [
+    {
+      "hex": "#9A7654",
+      "hsl": {
+        "h": 29,
+        "s": 29,
+        "l": 47
+      },
+      "source_region": "stone facade",
+      "source_semantics": [
+        "architectural material"
+      ],
+      "coverage": 0.42,
+      "repeat_count": 5,
+      "confidence": 0.9
+    }
+  ],
+  "identity_accent": [
+    {
+      "hex": "#8A3F32",
+      "hsl": {
+        "h": 9,
+        "s": 47,
+        "l": 37
+      },
+      "source_region": "tram body",
+      "source_semantics": [
+        "local transit"
+      ],
+      "coverage": 0.05,
+      "repeat_count": 2,
+      "confidence": 0.74
+    }
+  ],
+  "environment_color": [],
+  "warm_accent": [],
+  "light_color": [
+    {
+      "hex": "#E4D5B5",
+      "hsl": {
+        "h": 41,
+        "s": 47,
+        "l": 80
+      },
+      "source_region": "sunlit stone",
+      "source_semantics": [
+        "paper-light candidate"
+      ],
+      "coverage": 0.21,
+      "repeat_count": 3,
+      "confidence": 0.78
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "hex": "#31A8FF",
+      "reason": "small accidental sign; not structurally repeated"
+    }
+  ]
+}
+

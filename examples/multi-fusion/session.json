@@ -1,0 +1,22 @@
+{
+  "session_id": "example-fusion-001",
+  "image_count": 3,
+  "image_ids": [
+    "image_01",
+    "image_02",
+    "image_03"
+  ],
+  "mode": "multi_fusion",
+  "orientation": "portrait",
+  "output_ratio": "2:3",
+  "output_width": 1024,
+  "output_height": 1536,
+  "pending_questions": [],
+  "user_text": {
+    "provided": true,
+    "content": "EXAMPLE CITY",
+    "source": "user"
+  },
+  "selected_style": "MULTI_STYLE_06",
+  "status": "spec_ready"
+}

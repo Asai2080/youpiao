@@ -1,0 +1,526 @@
+{
+  "config_version": "1.1.0",
+  "feature_scale": [
+    0,
+    1
+  ],
+  "algorithm": {
+    "kind": "deterministic_additive",
+    "apply_hard_gates_before_scoring": true,
+    "one_style_only": true,
+    "direct_select_margin": 12,
+    "confidence_bands": {
+      "high": {
+        "min": 80
+      },
+      "medium": {
+        "min": 65,
+        "max": 79.999
+      },
+      "low": {
+        "min": 50,
+        "max": 64.999
+      },
+      "compatibility_review": {
+        "max": 49.999
+      }
+    },
+    "ratio_compatibility_weight_cap": 5,
+    "selected_prompt_must_be_available": true,
+    "fallback_style_id": "STYLE_01",
+    "randomization": false
+  },
+  "title_selection": {
+    "strategy": "MOST_SPECIFIC_FROM_VERIFIED_NAME_POOL",
+    "allowed_kinds": [
+      "building",
+      "attraction",
+      "city",
+      "place"
+    ],
+    "allow_country_primary_title": false,
+    "allow_outside_pool": false,
+    "empty_pool_result": "BLOCKED_UNVERIFIED_PRIMARY_TITLE"
+  },
+  "styles": {
+    "STYLE_03": {
+      "hard_gates": [
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.65,
+          "reason": "Linear landmark is mandatory."
+        }
+      ],
+      "score_rules": [
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.75,
+          "weight": 50,
+          "note": "Strong linear landmark"
+        },
+        {
+          "feature": "scores.perspective_depth_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": 25,
+          "note": "Strong perspective depth"
+        },
+        {
+          "feature": "flags.repeating_structure",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Repeating structure"
+        },
+        {
+          "feature": "flags.large_environment_visible",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Large environment visible"
+        },
+        {
+          "feature": "flags.central_single_monument",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "Central single monument conflicts"
+        },
+        {
+          "feature": "flags.isolated_civic_building",
+          "operator": "==",
+          "value": true,
+          "weight": -30,
+          "note": "Isolated civic building conflicts"
+        }
+      ],
+      "invalid_rules": [
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": "<",
+          "value": 0.65,
+          "effect": "INVALID",
+          "note": "No qualifying linear structure"
+        }
+      ]
+    },
+    "STYLE_02": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.heritage_score",
+          "operator": ">=",
+          "value": 0.75,
+          "weight": 35,
+          "note": "Strong heritage"
+        },
+        {
+          "feature": "scores.monumentality_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": 25,
+          "note": "Strong monumentality"
+        },
+        {
+          "feature": "flags.central_axis_available",
+          "operator": "==",
+          "value": true,
+          "weight": 25,
+          "note": "Formal central axis"
+        },
+        {
+          "feature": "flags.frontal_or_symmetrical",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Frontal or symmetrical"
+        },
+        {
+          "feature": "flags.historic_material_detail",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Historic material detail"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": -40,
+          "note": "Linear structure conflict"
+        },
+        {
+          "feature": "flags.rich_city_life_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "City life dominates"
+        },
+        {
+          "feature": "flags.multi_city_montage_dominant",
+          "operator": "==",
+          "value": true,
+          "weight": -20,
+          "note": "Montage dominates"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "STYLE_05": {
+      "hard_gates": [
+        {
+          "all": [
+            {
+              "feature": "flags.public_building",
+              "operator": "==",
+              "value": true
+            },
+            {
+              "feature": "scores.horizontal_architectural_base_score",
+              "operator": ">=",
+              "value": 0.35
+            }
+          ],
+          "reason": "A real public building and real horizontal base are required; never invent them."
+        },
+        {
+          "feature": "flags.pure_natural_scene",
+          "operator": "==",
+          "value": false,
+          "reason": "Pure natural scenes are invalid."
+        }
+      ],
+      "score_rules": [
+        {
+          "feature": "scores.civic_score",
+          "operator": ">=",
+          "value": 0.75,
+          "weight": 35,
+          "note": "Strong civic signal"
+        },
+        {
+          "feature": "scores.horizontal_architectural_base_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 30,
+          "note": "Strong horizontal base"
+        },
+        {
+          "feature": "scores.monumentality_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 15,
+          "note": "Monumentality"
+        },
+        {
+          "feature": "flags.public_building",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Public building"
+        },
+        {
+          "feature": "flags.real_street_context",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Real street context"
+        },
+        {
+          "feature": "flags.no_horizontal_base",
+          "operator": "==",
+          "value": true,
+          "weight": -45,
+          "note": "No real horizontal base"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": -35,
+          "note": "Linear landmark conflict"
+        }
+      ],
+      "invalid_rules": [
+        {
+          "feature": "flags.pure_natural_scene",
+          "operator": "==",
+          "value": true,
+          "effect": "INVALID",
+          "note": "Pure natural scene"
+        }
+      ]
+    },
+    "STYLE_04": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.multi_landmark_score",
+          "operator": ">=",
+          "value": 0.6,
+          "weight": 30,
+          "note": "Multiple landmarks"
+        },
+        {
+          "feature": "scores.heritage_score",
+          "operator": ">=",
+          "value": 0.5,
+          "weight": 15,
+          "note": "Heritage"
+        },
+        {
+          "feature": "scores.botanical_candidate_score",
+          "operator": ">=",
+          "value": 0.55,
+          "weight": 20,
+          "note": "Reliable botanical candidate"
+        },
+        {
+          "feature": "scores.local_life_score",
+          "operator": ">=",
+          "value": 0.45,
+          "weight": 15,
+          "note": "Local life"
+        },
+        {
+          "feature": "flags.water_or_street",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Water, bridge, or street"
+        },
+        {
+          "feature": "flags.traditional_cityscape",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Traditional cityscape"
+        },
+        {
+          "feature": "flags.time_layered_city",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Time-layered city"
+        },
+        {
+          "feature": "flags.clear_hero_landmark",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "A single hero dominates"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": -35,
+          "note": "Linear landmark conflict"
+        },
+        {
+          "feature": "scores.cityscape_richness_score",
+          "operator": "<",
+          "value": 0.25,
+          "weight": -25,
+          "note": "No cityscape"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "STYLE_06": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.cityscape_richness_score",
+          "operator": ">=",
+          "value": 0.65,
+          "weight": 30,
+          "note": "Rich cityscape"
+        },
+        {
+          "feature": "flags.clear_hero_landmark",
+          "operator": "==",
+          "value": true,
+          "weight": 25,
+          "note": "Clear hero landmark"
+        },
+        {
+          "feature": "scores.local_life_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Local life"
+        },
+        {
+          "feature": "scores.infrastructure_score",
+          "operator": ">=",
+          "value": 0.4,
+          "weight": 10,
+          "note": "Infrastructure"
+        },
+        {
+          "feature": "flags.transport_present",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Transport"
+        },
+        {
+          "feature": "flags.multi_depth_cityscape",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Multi-depth cityscape"
+        },
+        {
+          "feature": "flags.isolated_civic_building",
+          "operator": "==",
+          "value": true,
+          "weight": -25,
+          "note": "Isolated building"
+        },
+        {
+          "feature": "flags.central_single_monument",
+          "operator": "==",
+          "value": true,
+          "weight": -15,
+          "note": "Pure heritage monument"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": -30,
+          "note": "Linear landmark conflict"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "STYLE_07": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "scores.multi_landmark_score",
+          "operator": ">=",
+          "value": 0.6,
+          "weight": 25,
+          "note": "Multiple landmarks"
+        },
+        {
+          "feature": "scores.cityscape_richness_score",
+          "operator": ">=",
+          "value": 0.6,
+          "weight": 25,
+          "note": "Rich cityscape"
+        },
+        {
+          "feature": "flags.continuous_urban_fabric",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Continuous urban fabric"
+        },
+        {
+          "feature": "flags.open_compositional_corridors",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Open corridors for swash"
+        },
+        {
+          "feature": "flags.water_or_street",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Water, street, or public space"
+        },
+        {
+          "feature": "flags.wide_city_context",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Wide city context"
+        },
+        {
+          "feature": "flags.isolated_civic_building",
+          "operator": "==",
+          "value": true,
+          "weight": -30,
+          "note": "Isolated building"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.7,
+          "weight": -35,
+          "note": "Linear landmark conflict"
+        },
+        {
+          "feature": "flags.central_single_monument",
+          "operator": "==",
+          "value": true,
+          "weight": -15,
+          "note": "Central monument"
+        }
+      ],
+      "invalid_rules": []
+    },
+    "STYLE_01": {
+      "hard_gates": [],
+      "score_rules": [
+        {
+          "feature": "flags.clear_hero_landmark",
+          "operator": "==",
+          "value": true,
+          "weight": 30,
+          "note": "Clear hero landmark"
+        },
+        {
+          "feature": "scores.cityscape_richness_score",
+          "operator": ">=",
+          "value": 0.35,
+          "weight": 20,
+          "note": "City context"
+        },
+        {
+          "feature": "flags.classic_travel_scene",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Classic travel scene"
+        },
+        {
+          "feature": "flags.landmark_title_interlock_ok",
+          "operator": "==",
+          "value": true,
+          "weight": 15,
+          "note": "Title interlock compatible"
+        },
+        {
+          "feature": "flags.urban_environment",
+          "operator": "==",
+          "value": true,
+          "weight": 10,
+          "note": "Urban environment"
+        },
+        {
+          "feature": "scores.linear_landmark_score",
+          "operator": ">=",
+          "value": 0.75,
+          "weight": -25,
+          "note": "Linear landmark"
+        },
+        {
+          "feature": "flags.public_building",
+          "operator": "==",
+          "value": true,
+          "weight": -15,
+          "note": "Possible stronger locked civic match"
+        }
+      ],
+      "invalid_rules": []
+    }
+  }
+}

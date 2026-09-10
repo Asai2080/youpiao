@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Runtime generation artifacts are local-only.
+outputs/
+
+# Keep the public before/after gallery, but exclude local audit artifacts
+# and duplicate delivery bundles.
+examples/gallery/**/transparent/
+examples/gallery/**/*.zip
+examples/gallery/**/*-intermediate.png
+examples/gallery/**/*-qa-intermediate.png
+examples/gallery/**/*-generation-payload.txt
+examples/gallery/**/*-generation-payload.manifest.json

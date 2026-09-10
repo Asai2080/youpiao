@@ -1,0 +1,60 @@
+{
+  "set_id": "2026-09-09-single-style-coverage-v1",
+  "mode": "single",
+  "coverage": "STYLE_01_THROUGH_STYLE_07_ONCE_EACH",
+  "orientations": ["portrait", "landscape"],
+  "output_contract": {
+    "portrait": "1024x1536",
+    "landscape": "1536x1024",
+    "format": "RGBA PNG",
+    "outside_perforations": "transparent"
+  },
+  "assignments": [
+    {
+      "style_id": "STYLE_01",
+      "before": "STYLE_01/before.png",
+      "verified_name_pool": ["THE WAVE"],
+      "fit_reason": "clear natural hero landmark and classic travel-poster composition"
+    },
+    {
+      "style_id": "STYLE_02",
+      "before": "STYLE_02/before.png",
+      "verified_name_pool": ["大雁塔"],
+      "fit_reason": "formal Buddhist heritage monument with strong vertical monumentality"
+    },
+    {
+      "style_id": "STYLE_03",
+      "before": "STYLE_03/before.png",
+      "verified_name_pool": ["COLOSSEUM"],
+      "fit_reason": "continuous repeating arcades and strong curved perspective"
+    },
+    {
+      "style_id": "STYLE_04",
+      "before": "STYLE_04/before.png",
+      "verified_name_pool": ["漓江"],
+      "fit_reason": "waterfront cultural scene, local life and botanical foreground"
+    },
+    {
+      "style_id": "STYLE_05",
+      "before": "STYLE_05/before.png",
+      "verified_name_pool": ["比萨斜塔"],
+      "fit_reason": "public monumental architectural complex with a real horizontal base"
+    },
+    {
+      "style_id": "STYLE_06",
+      "before": "STYLE_06/before.png",
+      "verified_name_pool": ["LAUTERBRUNNEN"],
+      "fit_reason": "rich multi-depth settlement, waterfall, river and local rail context"
+    },
+    {
+      "style_id": "STYLE_07",
+      "before": "STYLE_07/before.png",
+      "verified_name_pool": ["夏塔旅游区"],
+      "fit_reason": "sweeping wide context with open compositional corridors",
+      "delivery_status": "USER_APPROVED_VISUAL_REFERENCE",
+      "factual_text_note": "Retained exactly as approved by the user; rendered place-name text is not a factual naming example and must not be used to change routing or naming rules."
+    }
+  ],
+  "source_prompt_policy": "READ_ONLY",
+  "logic_changes": "NONE"
+}

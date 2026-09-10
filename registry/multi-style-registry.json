@@ -1,0 +1,639 @@
+{
+  "registry_version": "1.0.0",
+  "mode": "multi_fusion",
+  "source_prompt_policy": "READ_ONLY",
+  "border_router": "NONE",
+  "footer_router": "NONE",
+  "styles": [
+    {
+      "style_id": "MULTI_STYLE_01",
+      "style_name": "MONUMENTAL TYPOGRAPHIC CITY ICONOGRAPHY AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_07",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_01",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "general city multi-image",
+          "strong hero with local icon",
+          "comprehensive city montage"
+        ],
+        "strong_signals": [
+          "clear hero",
+          "city background",
+          "local icon",
+          "multi-landmark"
+        ],
+        "negative_signals": [
+          "stronger special heritage/nature/civic/monumental/layered match"
+        ]
+      },
+      "layout": {
+        "flexibility": "adaptive_fusion",
+        "hero_type": "HERO_LANDMARK",
+        "hero_position": "perspective_anchor",
+        "title_relationship": "INTERLOCKED_HERO_IN_FRONT",
+        "fusion_roles": [
+          "hero",
+          "secondary",
+          "background",
+          "water_or_street",
+          "local_icon"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "HIGH-CONTRAST MODERN ROMAN DISPLAY SERIF",
+          "width": "normal-to-condensed",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "ALL CAPS",
+          "scale": "height 30%-34%; width 88%-96%",
+          "depth_mode": "INTERLOCKED"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "structural_dark"
+        ],
+        "title_role": "PRIMARY_INK",
+        "secondary_source": [
+          "structural_dark"
+        ],
+        "secondary_role": "PRIMARY_INK",
+        "accent_source": [
+          "identity_accent"
+        ],
+        "accent_role": "ACCENT_INK",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "pure black"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt",
+        "complexity": "style-owned"
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt"
+      },
+      "printing": {
+        "medium": [
+          "lithography",
+          "engraved postal print"
+        ],
+        "paper_tone": "fixed warm ivory or cream",
+        "aging_level": "source-prompt-defined"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    },
+    {
+      "style_id": "MULTI_STYLE_02",
+      "style_name": "CLASSICAL HERITAGE MONUMENT ARCHIVAL AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_08",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_02",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "historic civilization heritage",
+          "classical monument",
+          "museum archival details"
+        ],
+        "strong_signals": [
+          "hero monument",
+          "heritage detail",
+          "historic city background"
+        ],
+        "negative_signals": [
+          "modern transit dominant",
+          "nature destination dominant",
+          "no heritage"
+        ]
+      },
+      "layout": {
+        "flexibility": "heritage_archive",
+        "hero_type": "HERO_MONUMENT",
+        "hero_position": "primary monument with lower-left heritage vignette",
+        "title_relationship": "BACKGROUND_OR_INTERLOCKED",
+        "fusion_roles": [
+          "hero_monument",
+          "secondary_landmark",
+          "city_background",
+          "water_or_street",
+          "foreground_heritage_detail",
+          "local_botanical_detail",
+          "local_civic_symbol"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "HIGH-CONTRAST MODERN ROMAN / DIDONE",
+          "width": "narrow",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "display case",
+          "scale": "height 30%-38%; width 75%-90%",
+          "depth_mode": "BACKGROUND / INTERLOCKED"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "architectural_material"
+        ],
+        "title_role": "TITLE_INK",
+        "secondary_source": [
+          "structural_dark"
+        ],
+        "secondary_role": "ARCHIVAL_INK",
+        "accent_source": [
+          "warm_accent"
+        ],
+        "accent_role": "HERITAGE_ACCENT_INK",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "sky",
+          "water",
+          "clothing",
+          "vehicle",
+          "accidental bright color"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "asymmetric_left_botanical_engraving_band",
+        "complexity": "rich-left restrained-other-sides"
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "style-owned archival footer"
+      },
+      "printing": {
+        "medium": [
+          "classical engraving",
+          "museum archive print",
+          "lithography"
+        ],
+        "aging_level": "historic archival"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved",
+          "Disable heritage vignette when no real supporting detail exists"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    },
+    {
+      "style_id": "MULTI_STYLE_03",
+      "style_name": "DESTINATION HERITAGE ICON MONTAGE AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_09",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_03",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "destination diversity",
+          "nature and culture",
+          "fauna botanical transport montage"
+        ],
+        "strong_signals": [
+          "natural icon",
+          "destination diversity",
+          "fauna or botanical",
+          "geographic landscape"
+        ],
+        "negative_signals": [
+          "pure civic city",
+          "only one building type"
+        ]
+      },
+      "layout": {
+        "flexibility": "geographical_compression",
+        "hero_type": "HERO_DESTINATION_ICON",
+        "hero_position": "iconographic_montage",
+        "title_relationship": "FRONT / SEPARATED; keep fully legible",
+        "fusion_roles": [
+          "nature",
+          "architecture",
+          "transport",
+          "fauna",
+          "botanical",
+          "horizontal_connector"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "ULTRA-CONDENSED HIGH-CONTRAST ROMAN DISPLAY SERIF",
+          "width": "ultra-condensed",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "display case",
+          "scale": "height 22%-28%; width 88%-96%",
+          "depth_mode": "FRONT / SEPARATED"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "environment_color"
+        ],
+        "title_role": "ENVIRONMENT_INK",
+        "secondary_source": [
+          "structural_dark"
+        ],
+        "secondary_role": "ARCHIVAL_INK",
+        "accent_source": [
+          "identity_accent"
+        ],
+        "accent_role": "LOCAL_ICON_ACCENT",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "sky as primary source"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt",
+        "complexity": "style-owned"
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt"
+      },
+      "printing": {
+        "medium": [
+          "travel lithography",
+          "airmail stamp print"
+        ],
+        "aging_level": "source-prompt-defined"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved",
+          "All compressed places share a reliable destination level"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    },
+    {
+      "style_id": "MULTI_STYLE_04",
+      "style_name": "IMPERIAL CIVIC LANDMARK MONTAGE AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_10",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_04",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "multiple civic landmarks",
+          "city skyline and transit",
+          "municipal character"
+        ],
+        "strong_signals": [
+          "civic",
+          "skyline",
+          "local transit",
+          "infrastructure",
+          "secondary icon"
+        ],
+        "negative_signals": [
+          "nature dominant",
+          "heritage object dominant",
+          "no urban context"
+        ]
+      },
+      "layout": {
+        "flexibility": "balanced_civic_montage",
+        "hero_type": "HERO_CIVIC_LANDMARK",
+        "hero_position": "vertical hero with complementary secondary silhouette",
+        "title_relationship": "BACKGROUND / INTERLOCKED",
+        "fusion_roles": [
+          "hero",
+          "secondary",
+          "skyline",
+          "local_transit",
+          "infrastructure"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "ULTRA-TALL ULTRA-CONDENSED HIGH-CONTRAST DIDONE",
+          "width": "ultra-condensed",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "single-line display",
+          "scale": "height 28%-34%; width 88%-96%",
+          "depth_mode": "BACKGROUND / INTERLOCKED",
+          "long_name_rule": "condense before shrinking"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "structural_dark"
+        ],
+        "title_role": "CIVIC_SHADOW_INK",
+        "secondary_source": [
+          "structural_dark"
+        ],
+        "secondary_role": "ARCHIVAL_INK",
+        "accent_source": [
+          "identity_accent"
+        ],
+        "accent_role": "LOCAL_ACCENT_INK",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "fixed blue"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "ultra-thin_double_rule_small_geometric_sunburst_corners",
+        "complexity": "fine",
+        "forbidden": [
+          "botanical border"
+        ]
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "POSTAL_CERTIFICATE_FOOTER"
+      },
+      "printing": {
+        "medium": [
+          "municipal archive print",
+          "lithography"
+        ],
+        "aging_level": "source-prompt-defined"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    },
+    {
+      "style_id": "MULTI_STYLE_05",
+      "style_name": "MONUMENTAL CITY WORDMARK LANDMARK MONTAGE AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_11",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_05",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "very strong vertical monumental hero",
+          "city wordmark with multiple landmarks"
+        ],
+        "strong_signals": [
+          "vertical hero >= 0.80",
+          "monumentality >= 0.70",
+          "city identity hero"
+        ],
+        "negative_signals": [
+          "no vertical hero",
+          "nature montage",
+          "hero not monumental"
+        ]
+      },
+      "layout": {
+        "flexibility": "monumental_wordmark",
+        "hero_type": "HERO_CIVIC_LANDMARK",
+        "hero_position": "55%-70% visual height; rises through wordmark",
+        "title_relationship": "BACKGROUND TYPOGRAPHIC ARCHITECTURE",
+        "fusion_roles": [
+          "hero",
+          "secondary",
+          "skyline",
+          "bridge_or_water",
+          "foreground_local_transport"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "EXTREMELY CONDENSED DIDONE",
+          "width": "extremely-condensed",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "single-line display",
+          "scale": "upper 28%-38%",
+          "depth_mode": "BACKGROUND TYPOGRAPHIC ARCHITECTURE"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "structural_dark"
+        ],
+        "title_role": "PRIMARY_WORDMARK_COLOR",
+        "secondary_source": [
+          "warm_accent"
+        ],
+        "secondary_role": "SECONDARY_WARM_ACCENT",
+        "accent_source": [
+          "identity_accent"
+        ],
+        "accent_role": "LOCAL_ICON_ACCENT",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "bright bus",
+          "flag",
+          "small object as title source"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt",
+        "complexity": "style-owned"
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt"
+      },
+      "printing": {
+        "medium": [
+          "lithography",
+          "postal security print"
+        ],
+        "aging_level": "source-prompt-defined"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved",
+          "Hero is real, vertical, and monumental",
+          "Local icon accent remains approximately 5%-15%"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    },
+    {
+      "style_id": "MULTI_STYLE_06",
+      "style_name": "LAYERED ICONIC CITY WORDMARK AIRMAIL STAMP",
+      "mode": "multi_fusion",
+      "source_label": "STYLE_12",
+      "source_prompt": {
+        "prompt_id": "multi.multi_style_06",
+        "policy": "READ_ONLY"
+      },
+      "router": {
+        "best_for": [
+          "layered city icons",
+          "vertical hero with directional transit",
+          "foreground framing"
+        ],
+        "strong_signals": [
+          "vertical hero",
+          "horizontal or diagonal transit",
+          "foreground frame",
+          "secondary icon"
+        ],
+        "negative_signals": [
+          "no layering elements",
+          "no hero"
+        ]
+      },
+      "layout": {
+        "flexibility": "layered_directional",
+        "hero_type": "HERO_VERTICAL_LANDMARK",
+        "hero_position": "off-center left or right; passes through wordmark",
+        "title_relationship": "BACKGROUND ARCHITECTURAL TYPOGRAPHY",
+        "fusion_roles": [
+          "vertical_hero",
+          "secondary_icon",
+          "skyline",
+          "directional_transit",
+          "foreground_frame",
+          "infrastructure"
+        ]
+      },
+      "typography": {
+        "primary_title": {
+          "family_class": "MONUMENTAL CONDENSED DIDONE / TALL CONDENSED DISPLAY SERIF",
+          "width": "condensed",
+          "stroke_contrast": "high",
+          "tracking": "style-locked",
+          "case": "single-line display",
+          "scale": "height 38%-48%",
+          "depth_mode": "BACKGROUND ARCHITECTURAL TYPOGRAPHY"
+        }
+      },
+      "text_color": {
+        "title_source": [
+          "structural_dark"
+        ],
+        "title_role": "PRIMARY_WORDMARK_COLOR",
+        "secondary_source": [
+          "light_color"
+        ],
+        "secondary_role": "PAPER_LIGHT",
+        "accent_source": [
+          "identity_accent"
+        ],
+        "accent_role": "IDENTITY_ACCENT_COLOR",
+        "knockout_role": "PAPER_KNOCKOUT_INK",
+        "vintage_ink_transformation": true,
+        "forbidden": [
+          "unverified decorative colors"
+        ]
+      },
+      "border": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt",
+        "complexity": "style-owned"
+      },
+      "footer": {
+        "embedded_in_style": true,
+        "type": "defined_by_source_prompt"
+      },
+      "printing": {
+        "medium": [
+          "lithography",
+          "offset lithography",
+          "engraving"
+        ],
+        "aging_level": "source-prompt-defined"
+      },
+      "qa": {
+        "must_have": [
+          "Complete source prompt loaded verbatim",
+          "Exactly one style selected",
+          "Typography DNA preserved",
+          "Text-color role mapping followed",
+          "Style-owned border and footer preserved",
+          "Directional counterbalance between vertical hero and horizontal/diagonal transit",
+          "Wordmark remains legible despite interlock"
+        ],
+        "must_not_have": [
+          "Cross-style typography",
+          "Independent border or footer routing",
+          "Unverified factual text",
+          "Reference-image cultural artifacts without input evidence"
+        ]
+      }
+    }
+  ]
+}
+

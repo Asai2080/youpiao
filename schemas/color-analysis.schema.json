@@ -1,0 +1,485 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/color-analysis.schema.json",
+  "title": "Color candidates; no final text-color selection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "image_id",
+    "analysis_only",
+    "structural_dark",
+    "architectural_material",
+    "identity_accent",
+    "environment_color",
+    "warm_accent",
+    "light_color",
+    "excluded_candidates"
+  ],
+  "properties": {
+    "image_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "analysis_only": {
+      "const": true
+    },
+    "structural_dark": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "architectural_material": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "identity_accent": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "environment_color": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "warm_accent": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "light_color": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "hsl",
+          "source_region",
+          "source_semantics",
+          "coverage",
+          "repeat_count",
+          "confidence"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "hsl": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "h",
+              "s",
+              "l"
+            ],
+            "properties": {
+              "h": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360
+              },
+              "s": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "l": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "source_region": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_semantics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "repeat_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "excluded_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hex",
+          "reason"
+        ],
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

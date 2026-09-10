@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/session.schema.json",
+  "title": "Youpiao Session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "image_count",
+    "image_ids",
+    "mode",
+    "orientation",
+    "output_ratio",
+    "output_width",
+    "output_height",
+    "pending_questions",
+    "user_text",
+    "selected_style",
+    "status"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "image_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "mode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "single",
+        "multi_independent",
+        "multi_fusion",
+        null
+      ]
+    },
+    "orientation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "portrait",
+        "landscape",
+        null
+      ]
+    },
+    "output_ratio": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "2:3",
+        "3:2",
+        null
+      ]
+    },
+    "output_width": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "enum": [
+        1024,
+        1536,
+        null
+      ]
+    },
+    "output_height": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "enum": [
+        1024,
+        1536,
+        null
+      ]
+    },
+    "pending_questions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "output_orientation",
+          "multi_mode",
+          "verified_title_identity"
+        ]
+      }
+    },
+    "user_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provided",
+        "content",
+        "source"
+      ],
+      "properties": {
+        "provided": {
+          "type": "boolean"
+        },
+        "content": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "enum": [
+            "user",
+            "auto_verified",
+            "none"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "provided": {
+                "const": true
+              }
+            },
+            "required": [
+              "provided"
+            ]
+          },
+          "then": {
+            "properties": {
+              "content": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "const": "user"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "provided": {
+                "const": false
+              }
+            },
+            "required": [
+              "provided"
+            ]
+          },
+          "then": {
+            "properties": {
+              "source": {
+                "enum": [
+                  "auto_verified",
+                  "none"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "selected_style": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^(STYLE_0[1-7]|MULTI_STYLE_0[1-6])$"
+    },
+    "status": {
+      "enum": [
+        "awaiting_input",
+        "analysis",
+        "routing",
+        "spec_ready",
+        "blocked_missing_prompt",
+        "blocked_unverified_primary_title",
+        "qa",
+        "complete"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "image_count": {
+            "const": 1
+          }
+        },
+        "required": [
+          "image_count"
+        ]
+      },
+      "then": {
+        "properties": {
+          "mode": {
+            "const": "single"
+          },
+          "image_ids": {
+            "maxItems": 1
+          },
+          "pending_questions": {
+            "items": {
+              "enum": [
+                "output_orientation",
+                "verified_title_identity"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "image_count": {
+            "minimum": 2
+          }
+        },
+        "required": [
+          "image_count"
+        ]
+      },
+      "then": {
+        "properties": {
+          "mode": {
+            "enum": [
+              "multi_independent",
+              "multi_fusion",
+              null
+            ]
+          },
+          "pending_questions": {
+            "items": {
+              "enum": [
+                "output_orientation",
+                "multi_mode",
+                "verified_title_identity"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "orientation": {
+            "const": "portrait"
+          }
+        },
+        "required": [
+          "orientation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "output_ratio": {
+            "const": "2:3"
+          },
+          "output_width": {
+            "const": 1024
+          },
+          "output_height": {
+            "const": 1536
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "orientation": {
+            "const": "landscape"
+          }
+        },
+        "required": [
+          "orientation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "output_ratio": {
+            "const": "3:2"
+          },
+          "output_width": {
+            "const": 1536
+          },
+          "output_height": {
+            "const": 1024
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "orientation": {
+            "const": null
+          }
+        },
+        "required": [
+          "orientation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "output_ratio": {
+            "const": null
+          },
+          "output_width": {
+            "const": null
+          },
+          "output_height": {
+            "const": null
+          },
+          "pending_questions": {
+            "contains": {
+              "const": "output_orientation"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

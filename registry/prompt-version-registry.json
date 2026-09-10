@@ -1,0 +1,756 @@
+{
+  "registry_version": "1.3.0",
+  "source_prompt_policy": "READ_ONLY",
+  "source_conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+  "import_serialization": "User message text is unchanged; each Markdown file adds one terminal newline only.",
+  "mutation_policy": "Never overwrite an existing verified version. Add prompt_vN.md and switch active_version only after verbatim import and hash registration.",
+  "prompts": [
+    {
+      "prompt_id": "global.negative",
+      "style_id": null,
+      "mode": "global",
+      "active_version": "v1",
+      "versions": {
+        "v1": {
+          "path": "prompts/global/global_negative/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "bba96a464f766129549a684efc85c286a9bd857c67d4fc3fb5621aff4fb610ff",
+          "source": {
+            "file": "stamp_prompts_original_verbatim.md",
+            "section": "用户原始提示词（独立全局／负向提示词）"
+          },
+          "note": "Imported byte-for-byte from the user-provided authoritative source file."
+        }
+      }
+    },
+    {
+      "prompt_id": "single.style_01",
+      "style_id": "STYLE_01",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_01/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "66ada858878e4ae99463b757c0228932565ebe22d09a5a209da838ace4af2732",
+          "source": {
+            "file": "stamp_prompts_original_verbatim.md",
+            "section": "STYLE_01"
+          },
+          "note": "Imported byte-for-byte from the user-provided authoritative source file."
+        },
+        "v2": {
+          "path": "prompts/single/style_01/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "43f6c96ba63b94c7d453e268c86207c1b57e6ce57eecff9a6b757a4604dbc4c1",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_01/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "4250dc1759320ec6ad459370e2b965709b1b8366dafff3b88091aba794f3f0c0",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_01/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "4458a277d526956b6148e20c5dfafdcc9411c7ba496a76e6efd0a80050bf4d76",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_02",
+      "style_id": "STYLE_02",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_02/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "57b24bc43e9daec6a5293596f3f2d133e8ba3e2364cc88bf2ff1888d5325056c",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "2944e166-962b-454d-95ac-8f6053442664"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_02/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "070b52113c8d2ca2c09742e6f4ecadffe4621b8f044b4dd38ee949c3a7a411bd",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_02/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "221acdaed0a119dd4260861f26cd806398e45f1cb92c586d59367d6e10da8078",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_02/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "1d2f47a20f56cdee401a76d9de2d6a9de3241e140c08b3ded3ae807aefe1c451",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_03",
+      "style_id": "STYLE_03",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_03/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "ffb93ff697d4e80f0df5adca1b93bab30083d0f91c1b5b1327f3421b4c7b1a6f",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "4f4e0e9f-aeb5-4080-b399-09240e0164b4"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_03/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "b8867692d47f4024fa010e8725914c15b65fe9f6b555498813352de9579caa62",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_03/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "6fd5dd155663fb06cbbe7e3d9daf8d8d3e27e92f679a2c71a8f64dbe63493955",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_03/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "2098619cde4305d4525f62c844ac6b448c297db91c78739a3bb08febee9e304d",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_04",
+      "style_id": "STYLE_04",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_04/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "8317252acd102e7687a85fe205cf62412ad921e1756a46890eb75d42aa3d5da2",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "90a70874-6ff7-47d4-8749-a448a2b702df"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_04/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "c0ea448dc480ff464a01cb08549e26219fc1904a37fa4537e5cb0a6a51cd45af",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_04/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "e32a16ad01723ca75b741112c77a4ccd6569231c3cb01519cf0fb2d67ca75f3f",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_04/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "fafbba6659f59d4b230674a1878b4bad4edcf21ee0495ca9f71e83c1412d9337",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_05",
+      "style_id": "STYLE_05",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_05/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "bec5b89c7b52f0b0936d7dd311c99dfa7b59a4f858509b5a0a85af6e552e4bd4",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "4b49c125-e3c8-4cfe-9755-0f140960726c"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_05/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "aa1fa48a713cbaf791681554cb29d3872ff0f26da12401c098ed30247e5679fd",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_05/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "d39b38bc7cd47fcca1b5fb175cb6a9320b3f8169c3caddc1cc24b26a4a02a943",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_05/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "83a45ff4933c950f574e068463432218e65ee650188d3ca724c9bc1f50a21523",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_06",
+      "style_id": "STYLE_06",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_06/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "05a8fafff18c67c474b73329fd9eae6887435e65d95836dab7366901801b2963",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "4882ab76-ccb9-4dfa-97a3-a4adf28d43ae"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_06/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "0c3db319f9b369047da83c125dacfb91399fe199509612fd6f09f87ccca4aa46",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_06/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "e864c62bfe3df29810815192147cd8ab8d11f84fffe404114f273602135836de",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_06/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "d9458f794771167f9d0942dd6c417773ed9abe6f9478fa6084ebb0b774072a0a",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "single.style_07",
+      "style_id": "STYLE_07",
+      "mode": "single",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/single/style_07/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "68d708949ca1496498925dd5132807fc4382e877d9a299587a1fb69ba3fc644e",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "ed2c57d6-a31b-4916-97dd-51ccdd87fe8d"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/single/style_07/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "7dcce01a2f1a78fd05ef2bada15581eb216f56d93a0751a11b4084ebe164cdfb",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/single/style_07/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "368beac75300aa4834faf33623750efa5c0442cf300f431f905fa05a0c92a089",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/single/style_07/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "4f7b78c281c8eea146d4f5e2f21c552264a3781abb49a301dd855f9a8fbfdf1d",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_01",
+      "style_id": "MULTI_STYLE_01",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_01/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "8e5c186be6f79434333ada473b3cadd7b51fcab756b15a5378da011d3d816b07",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "e5a37f72-d9a8-4618-9eed-97e69151ef55"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_01/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "616d8b688e6a640d16d941dbfa56c90a586bf50a833e2ed73db2b0f92ece567f",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_01/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "4fc90a4562c6848afdbe88f1082413d9d43b0161422f53c09a2284a6ebe1ca8e",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_01/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "3c82f2b9dd830e2dfca26482812def9529414c4a252a0371e4b2ab0ee78a8cfe",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_02",
+      "style_id": "MULTI_STYLE_02",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_02/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "98aca20154963357806cdc28a7153c53f08e2f10124334342bfb3e676f604974",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "e8145c49-3fba-48a6-b09b-811c530fd766"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_02/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "8c5bbdacdaaac2ea367b1310388990ad3cc50bdf69b4333ee32f1bd6c76aec46",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_02/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "de1f69859a5c5c9e5f48979909bcd6b9fe08a4c8991e6f8ef85f5eb1337ca9fb",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_02/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "2f973ade1d5214ed1fb4eac27acc4ccae3f1f50d10fa263eb7b872dced87900a",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_03",
+      "style_id": "MULTI_STYLE_03",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_03/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "831070ab07bd9b694e620b373fe298d041051c63b610f324706caa82b8a49970",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "89048522-f0a9-4760-9785-99403aaa90be"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_03/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "45f982b7e4984fcf1df28357eed5685838c7c33f0f2363491b58dce1d701577c",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_03/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "e931146639305cd48556884e81818eabb4e221e51fc684852c4afb3adbff2c9a",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_03/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "24dd6a3136fce8d75f8cd180fa3e1ad0480c86bff4337bcbce5931085685c717",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_04",
+      "style_id": "MULTI_STYLE_04",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_04/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "b7880f6f3e0459e3b95a4956f2cfcaad252b454f326056b652d423f725385d54",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "70527364-fefe-4576-9c72-e68678942ec4"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_04/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "48fd7608f9d025eacaf906505b5048e0acc45ff25f4becd43fdd7943a862418a",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_04/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "d2738cfec9000a0b0f24506c814313d5ba533869bb4f58ec91399ab99e0ed866",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_04/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "afc7a9f2707000f4e801a1667d9ec8b7485f40f12ccd331f9a8b269d61f2cfcd",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_05",
+      "style_id": "MULTI_STYLE_05",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_05/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "9c9bdeaff555b6829022df307461330cdedb3e359e8f1a3a2ca107d543a268db",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "3c8f8c16-e14e-46f7-9432-55b9524be41f"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_05/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "4bcb969f8523f2d492118aa794772170e927783b32be847a63f9f7f9eacfcbb5",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_05/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "d2567bd5cdee495733eff7c1160e571e4417bacf56000a78d8c90ba2081d8103",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_05/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "b5ae9261bda077bd68ece388868391f324119ebc0760b109c53d69a6c093da1e",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    },
+    {
+      "prompt_id": "multi.multi_style_06",
+      "style_id": "MULTI_STYLE_06",
+      "mode": "multi_fusion",
+      "active_version": "v3",
+      "versions": {
+        "v1": {
+          "path": "prompts/multi/multi_style_06/prompt_v1.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "cef96f2aa0091924ee3ca0a11d3dfc7fb523e4b7dcbf5f19a032597878d99e64",
+          "source": {
+            "conversation_id": "6a9fc7bf-5870-83ec-b497-4cfd28edf998",
+            "turn_id": "b51c9073-ce2f-4544-a192-fc81a1c05e44"
+          },
+          "note": "Imported verbatim from the user message in the referenced conversation."
+        },
+        "v2": {
+          "path": "prompts/multi/multi_style_06/prompt_v2.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "b4bd93319e9babd43a23c4cbc7d912ea1715d585948bf9c99c72f12fdff9cb1e",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved primary-title specificity rule appended to the complete v1 source prompt."
+          },
+          "note": "Append-only v2. The complete v1 text is preserved byte-for-byte as the prefix; only the approved title rule is appended."
+        },
+        "v3": {
+          "path": "prompts/multi/multi_style_06/prompt_v3.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "5b0fc4d9aaf35e84b2442aea753f7073722182df6f3f8e3835c2544159f3aa2d",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and portrait output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v3 portrait variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        },
+        "v4": {
+          "path": "prompts/multi/multi_style_06/prompt_v4.md",
+          "status": "verified_source",
+          "immutable": true,
+          "sha256": "6475c9f11f5bf557325ac737c92b13087477606befa19ffe8f956e8f84dd3896",
+          "source": {
+            "approval_date": "2026-09-09",
+            "change": "User-approved verified-name candidate rule and landscape output contract appended to the complete v2 prompt."
+          },
+          "note": "Append-only v4 landscape variant. The complete v2 text is preserved byte-for-byte as the prefix."
+        }
+      },
+      "active_versions_by_orientation": {
+        "portrait": "v3",
+        "landscape": "v4"
+      }
+    }
+  ]
+}

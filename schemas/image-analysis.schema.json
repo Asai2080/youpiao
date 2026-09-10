@@ -1,0 +1,492 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youpiao.local/schemas/image-analysis.schema.json",
+  "title": "Per-image analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "image_id",
+    "location",
+    "visible_text",
+    "subjects",
+    "architecture",
+    "spatial",
+    "scene",
+    "reliable_text_candidates",
+    "verified_name_candidates",
+    "analysis_notes"
+  ],
+  "properties": {
+    "image_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_location",
+        "country",
+        "city_or_region",
+        "location_name",
+        "landmark_name",
+        "local_language_name",
+        "confidence",
+        "evidence"
+      ],
+      "properties": {
+        "primary_location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city_or_region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "landmark_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "local_language_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visible_text": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "confidence",
+          "region",
+          "verbatim"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verbatim": {
+            "const": true
+          }
+        }
+      }
+    },
+    "subjects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hero_candidates",
+        "secondary_landmarks",
+        "natural_icons",
+        "fauna",
+        "transport",
+        "bridges",
+        "water",
+        "streets",
+        "vegetation",
+        "local_objects",
+        "street_furniture",
+        "heritage_details"
+      ],
+      "properties": {
+        "hero_candidates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondary_landmarks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "natural_icons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fauna": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transport": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bridges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "water": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "streets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vegetation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "local_objects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "street_furniture": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "heritage_details": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "architecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "style",
+        "materials",
+        "verticality",
+        "monumentality",
+        "central_axis_available",
+        "frontal_or_symmetrical",
+        "has_horizontal_base",
+        "has_repeating_structure",
+        "public_building"
+      ],
+      "properties": {
+        "style": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verticality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "monumentality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "central_axis_available": {
+          "type": "boolean"
+        },
+        "frontal_or_symmetrical": {
+          "type": "boolean"
+        },
+        "has_horizontal_base": {
+          "type": "boolean"
+        },
+        "has_repeating_structure": {
+          "type": "boolean"
+        },
+        "public_building": {
+          "type": "boolean"
+        }
+      }
+    },
+    "spatial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "linear_landmark_score",
+        "perspective_depth_score",
+        "skyline_score",
+        "foreground_framing_score",
+        "open_compositional_corridors",
+        "multi_depth_cityscape"
+      ],
+      "properties": {
+        "linear_landmark_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "perspective_depth_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "skyline_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "foreground_framing_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "open_compositional_corridors": {
+          "type": "boolean"
+        },
+        "multi_depth_cityscape": {
+          "type": "boolean"
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cityscape_richness",
+        "heritage",
+        "civic",
+        "botanical_candidate",
+        "local_life",
+        "local_transit",
+        "infrastructure",
+        "destination_diversity",
+        "pure_natural_scene"
+      ],
+      "properties": {
+        "cityscape_richness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "heritage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "civic": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "botanical_candidate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "local_life": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "local_transit": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "infrastructure": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "destination_diversity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pure_natural_scene": {
+          "type": "boolean"
+        }
+      }
+    },
+    "reliable_text_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "kind",
+          "verification",
+          "confidence",
+          "evidence"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "location",
+              "landmark",
+              "visible_text",
+              "user_text",
+              "factual_metadata",
+              "style_decorative"
+            ]
+          },
+          "verification": {
+            "enum": [
+              "verified",
+              "visible_in_image",
+              "user_supplied",
+              "decorative_nonfactual",
+              "unverified"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "verified_name_candidates": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "source_name",
+          "display_name",
+          "kind",
+          "source_type",
+          "confidence",
+          "evidence",
+          "primary_title_eligible",
+          "country_only"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "building",
+              "attraction",
+              "city",
+              "place"
+            ]
+          },
+          "source_type": {
+            "enum": [
+              "user_provided",
+              "visible_signage_or_ocr",
+              "verified_visual_identity",
+              "verified_metadata",
+              "verified_external_source"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.9,
+            "maximum": 1
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "primary_title_eligible": {
+            "const": true
+          },
+          "country_only": {
+            "const": false
+          }
+        }
+      }
+    },
+    "analysis_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
