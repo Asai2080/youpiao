@@ -4,6 +4,22 @@ A deliverable Skill skeleton for routing real reference images into one fact-saf
 
 Every generation uses one of two fixed delivery formats: portrait `2:3` at `1024×1536 px`, or landscape `3:2` at `1536×1024 px`. When orientation is missing, the Skill asks only `横版还是竖版？` For multiple images it also asks for fusion versus independent generation when that choice is missing.
 
+## Generation examples
+
+The repository includes a complete gallery of eight single-image tests and four multi-image fusion tests. Each comparison uses the requested columns: original image, portrait result, and landscape result. [Open the complete before/after gallery](examples/showcase/README.md).
+
+### Single-image example
+
+| 原图 | 竖版（2:3） | 横版（3:2） |
+|---|---|---|
+| <img src="examples/showcase/single/single-07/original.webp" width="280" alt="Single-image original"> | <img src="examples/showcase/single/single-07/portrait.webp" width="280" alt="Single-image portrait result"> | <img src="examples/showcase/single/single-07/landscape.webp" width="280" alt="Single-image landscape result"> |
+
+### Multi-image fusion example
+
+| 原图 | 竖版（2:3） | 横版（3:2） |
+|---|---|---|
+| <img src="examples/showcase/multi/multi-04/source-01.webp" width="100" alt="Fusion source 1"> <img src="examples/showcase/multi/multi-04/source-02.webp" width="100" alt="Fusion source 2"><br><img src="examples/showcase/multi/multi-04/source-03.webp" width="100" alt="Fusion source 3"> <img src="examples/showcase/multi/multi-04/source-04.webp" width="100" alt="Fusion source 4"> | <img src="examples/showcase/multi/multi-04/portrait.webp" width="280" alt="Fusion portrait result"> | <img src="examples/showcase/multi/multi-04/landscape.webp" width="280" alt="Fusion landscape result"> |
+
 ## Install from the shared ZIP
 
 This package is intended for a Codex environment that has built-in image generation available.
@@ -33,7 +49,7 @@ python3 -m pip install -r requirements.txt
 python3 scripts/validate_skill.py --require-all-prompts
 ```
 
-The tracked sample gallery keeps only the intended `before.png`, `portrait-after.png`, and `landscape-after.png` files. Runtime output, direct generator renders, QA intermediates, caches, duplicate transparent copies, and gallery ZIP bundles remain local and are excluded by `.gitignore`.
+The existing style-coverage gallery keeps only the intended `before.png`, `portrait-after.png`, and `landscape-after.png` files. The user-facing showcase under `examples/showcase/` keeps only optimized WebP previews. Runtime output, direct generator renders, QA intermediates, caches, duplicate transparent copies, and gallery ZIP bundles remain local and are excluded by `.gitignore`.
 
 ## Known QA limitation
 
